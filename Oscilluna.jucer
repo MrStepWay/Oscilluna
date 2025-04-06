@@ -1,16 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="hfexyR" name="Oscilluna" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" cppLanguageStandard="20"
+              defines="JUCE_MODAL_LOOPS_PERMITTED=1">
   <MAINGROUP id="fvsL7D" name="Oscilluna">
-    <GROUP id="{27F0268A-3F40-90ED-5CFD-3DD68B83F6AA}" name="Resources"/>
+    <GROUP id="{27F0268A-3F40-90ED-5CFD-3DD68B83F6AA}" name="Resources">
+      <FILE id="OgEX1J" name="Oscilluna_icon.png" compile="0" resource="1"
+            file="Resources/Oscilluna_icon.png"/>
+    </GROUP>
     <GROUP id="{C21F5FAF-1BD4-1356-D70A-311AE0FDA931}" name="Source">
-      <FILE id="f69Szl" name="OscillunaLookAndFeel.cpp" compile="1" resource="0"
-            file="Source/OscillunaLookAndFeel.cpp"/>
-      <FILE id="dTFEIr" name="OscillunaLookAndFeel.h" compile="0" resource="0"
-            file="Source/OscillunaLookAndFeel.h"/>
-      <FILE id="wv8onh" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <GROUP id="{85C267C8-D125-678D-91E6-447AF97E06C2}" name="UI">
+        <FILE id="tCbCK5" name="DeviceSelectorComponent.cpp" compile="1" resource="0"
+              file="Source/UI/DeviceSelectorComponent.cpp"/>
+        <FILE id="b1QclP" name="DeviceSelectorComponent.h" compile="0" resource="0"
+              file="Source/UI/DeviceSelectorComponent.h"/>
+        <FILE id="Gva4VS" name="EnvelopeComponent.cpp" compile="1" resource="0"
+              file="Source/UI/EnvelopeComponent.cpp"/>
+        <FILE id="moistI" name="EnvelopeComponent.h" compile="0" resource="0"
+              file="Source/UI/EnvelopeComponent.h"/>
+        <FILE id="XV897a" name="OscillunaLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/UI/OscillunaLookAndFeel.cpp"/>
+        <FILE id="w5rHQW" name="OscillunaLookAndFeel.h" compile="0" resource="0"
+              file="Source/UI/OscillunaLookAndFeel.h"/>
+        <FILE id="FEBRmK" name="OscParamsComponent.cpp" compile="1" resource="0"
+              file="Source/UI/OscParamsComponent.cpp"/>
+        <FILE id="ZDcxmC" name="OscParamsComponent.h" compile="0" resource="0"
+              file="Source/UI/OscParamsComponent.h"/>
+        <FILE id="Q8fIy7" name="PitchDialComponent.cpp" compile="1" resource="0"
+              file="Source/UI/PitchDialComponent.cpp"/>
+        <FILE id="LWMzpU" name="PitchDialComponent.h" compile="0" resource="0"
+              file="Source/UI/PitchDialComponent.h"/>
+        <FILE id="o4l5Z8" name="PresetSelectorComponent.cpp" compile="1" resource="0"
+              file="Source/UI/PresetSelectorComponent.cpp"/>
+        <FILE id="fg4xh8" name="PresetSelectorComponent.h" compile="0" resource="0"
+              file="Source/UI/PresetSelectorComponent.h"/>
+        <FILE id="dzQOQO" name="RecordComponent.cpp" compile="1" resource="0"
+              file="Source/UI/RecordComponent.cpp"/>
+        <FILE id="yZOIYU" name="RecordComponent.h" compile="0" resource="0"
+              file="Source/UI/RecordComponent.h"/>
+        <FILE id="y0n2Bj" name="SettingsComponent.cpp" compile="1" resource="0"
+              file="Source/UI/SettingsComponent.cpp"/>
+        <FILE id="mqIYjQ" name="SettingsComponent.h" compile="0" resource="0"
+              file="Source/UI/SettingsComponent.h"/>
+        <FILE id="hE2vA9" name="ShapeSelectorComponent.cpp" compile="1" resource="0"
+              file="Source/UI/ShapeSelectorComponent.cpp"/>
+        <FILE id="APYtB2" name="ShapeSelectorComponent.h" compile="0" resource="0"
+              file="Source/UI/ShapeSelectorComponent.h"/>
+        <FILE id="mOi2zA" name="UnisonSettingsComponent.cpp" compile="1" resource="0"
+              file="Source/UI/UnisonSettingsComponent.cpp"/>
+        <FILE id="oRrJWW" name="UnisonSettingsComponent.h" compile="0" resource="0"
+              file="Source/UI/UnisonSettingsComponent.h"/>
+        <FILE id="khTFN9" name="ValueSelectorComponent.cpp" compile="1" resource="0"
+              file="Source/UI/ValueSelectorComponent.cpp"/>
+        <FILE id="J5JuZP" name="ValueSelectorComponent.h" compile="0" resource="0"
+              file="Source/UI/ValueSelectorComponent.h"/>
+        <FILE id="ApnDKN" name="VolumeDialComponent.cpp" compile="1" resource="0"
+              file="Source/UI/VolumeDialComponent.cpp"/>
+        <FILE id="Pij32A" name="VolumeDialComponent.h" compile="0" resource="0"
+              file="Source/UI/VolumeDialComponent.h"/>
+      </GROUP>
+      <GROUP id="{F5EF0C4F-ABA1-51CA-7720-BE6BF28DFA87}" name="Synthesis">
+        <FILE id="UryNyY" name="Oscillator.cpp" compile="1" resource="0" file="Source/Synthesis/Oscillator.cpp"/>
+        <FILE id="Aug6lc" name="Oscillator.h" compile="0" resource="0" file="Source/Synthesis/Oscillator.h"/>
+        <FILE id="kS1J2l" name="SynthAudioSource.cpp" compile="1" resource="0"
+              file="Source/Synthesis/SynthAudioSource.cpp"/>
+        <FILE id="IfxTJr" name="SynthAudioSource.h" compile="0" resource="0"
+              file="Source/Synthesis/SynthAudioSource.h"/>
+        <FILE id="oDpntJ" name="SynthSound.cpp" compile="1" resource="0" file="Source/Synthesis/SynthSound.cpp"/>
+        <FILE id="WoGhmJ" name="SynthSound.h" compile="0" resource="0" file="Source/Synthesis/SynthSound.h"/>
+        <FILE id="fqLPSu" name="SynthVoice.cpp" compile="1" resource="0" file="Source/Synthesis/SynthVoice.cpp"/>
+        <FILE id="Lmqtls" name="SynthVoice.h" compile="0" resource="0" file="Source/Synthesis/SynthVoice.h"/>
+        <FILE id="Tbn46C" name="UnisonOscillator.cpp" compile="1" resource="0"
+              file="Source/Synthesis/UnisonOscillator.cpp"/>
+        <FILE id="jaTFQa" name="UnisonOscillator.h" compile="0" resource="0"
+              file="Source/Synthesis/UnisonOscillator.h"/>
+      </GROUP>
       <FILE id="QdPpcR" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="wv8onh" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="R8nuEy" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
     </GROUP>
@@ -28,7 +94,7 @@
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
-  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_USE_LAME_AUDIO_FORMAT="1"/>
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
@@ -68,7 +134,8 @@
         <MODULEPATH id="juce_gui_extra" path="../../Documents/JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" applicationCategory="public.app-category.music"
+               bigIcon="OgEX1J" smallIcon="OgEX1J">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="Oscilluna"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="Oscilluna"/>

@@ -1,88 +1,71 @@
 #include <JuceHeader.h>
 #include "MainComponent.h"
 
-
 class OscillunaApplication : public juce::JUCEApplication {
 public:
     OscillunaApplication() {}
 
+    /**Получение названия приложения*/
     const juce::String getApplicationName() override {
         return ProjectInfo::projectName;
     }
     
-    const juce::String getApplicationVersion() override    {
+    /**Получение версии приложения*/
+    const juce::String getApplicationVersion() override {
         return ProjectInfo::versionString;
     }
     
+    /**Разрешено ли иметь более одного экземпляра приложения*/
     bool moreThanOneInstanceAllowed() override {
         return true;
     }
 
-    void initialise (const juce::String& commandLine) override {
-        // This method is where you should put your application's initialisation code..
-
-        mainWindow.reset(new MainWindow (getApplicationName()));
+    /**Инициализация окна**/
+    void initialise(const juce::String& commandLine) override {
+        mainWindow.reset(new MainWindow(getApplicationName()));
     }
 
+    /**Закрытие окна**/
     void shutdown() override {
-        // Add your application's shutdown code here..
-
-        mainWindow = nullptr; // (deletes window)
+        mainWindow = nullptr; // Удаление окна
     }
-
-    //==============================================================================
+    
+    /**Вызывается, когда приложение получает запрос на завершение работы*/
     void systemRequestedQuit() override {
-        // This is called when the app is being asked to quit: you can ignore this
-        // request and let the app carry on running, or call quit() to allow the app to close.
         quit();
     }
 
+    /**Поведение при запуске ещё одного экземпляра приложения**/
     void anotherInstanceStarted (const juce::String& commandLine) override {
-        // When another instance of the app is launched while this one is running,
-        // this method is invoked, and the commandLine parameter tells you what
-        // the other instance's command-line arguments were.
     }
 
-    //==============================================================================
-    /*
-        This class implements the desktop window that contains an instance of
-        our MainComponent class.
-    */
+    /**Этот класс реализует окно рабочего стола, которое содержит экземпляр класса MainComponent.*/
     class MainWindow : public juce::DocumentWindow {
     public:
-        MainWindow (juce::String name) : DocumentWindow(name,
-                                                        juce::Desktop::getInstance().getDefaultLookAndFeel().
-                                                        findColour(juce::ResizableWindow::backgroundColourId),
-                                                        DocumentWindow::allButtons) {
-            setUsingNativeTitleBar(true);
-            setContentOwned(new MainComponent(), true);
-            setResizable(true, true);
-            centreWithSize(getWidth(), getHeight());
-            setVisible(true);
+        MainWindow(juce::String name) : DocumentWindow(name, // Название приложения
+                                                       juce::Desktop::getInstance().getDefaultLookAndFeel().
+                                                       findColour(juce::ResizableWindow::backgroundColourId), // Цвет окна
+                                                       DocumentWindow::allButtons) { // Отображать все кнопки (закрытие, сворачивани и минимизация)
+            setUsingNativeTitleBar(true); // Используем системный Title Bar
+            setContentOwned(new MainComponent(), true); // Делаем MainComponent главным
+            setResizable(true, true); // Разрешаем изменять размер
+            // setResizeLimits(<#int newMinimumWidth#>, <#int newMinimumHeight#>, <#int newMaximumWidth#>, <#int newMaximumHeight#>) // Ограничения в изменения размера
+            centreWithSize(getWidth(), getHeight()); // Размещаем компонент в центре
+            setVisible(true); // Делаем видимым
         }
 
+        /**Поведение в случае нажатия на кнопку закрытия приложения*/
         void closeButtonPressed() override {
-            // This is called when the user tries to close this window. Here, we'll just
-            // ask the app to quit when this happens, but you can change this to do
-            // whatever you need.
             JUCEApplication::getInstance()->systemRequestedQuit();
         }
 
-        /* Note: Be careful if you override any DocumentWindow methods - the base
-           class uses a lot of them, so by overriding you might break its functionality.
-           It's best to do all your work in your content component instead, but if
-           you really have to override any DocumentWindow methods, make sure your
-           subclass also calls the superclass's method.
-        */
-
     private:
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainWindow) // Удаляем конструктор копирования и устанавливет детектор утечек.
     };
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
 };
 
-//==============================================================================
-// This macro generates the main() routine that launches the app.
+// Этот макрос генерирует процедуру main(), которая запускает приложение.
 START_JUCE_APPLICATION(OscillunaApplication)
